@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: app-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /bicicletas
+        pathType: Prefix
+        backend:
+          service:
+            name: bicicletas-ms
+            port:
+              number: 5000
+      - path: /login
+        pathType: Prefix
+        backend:
+          service:
+            name: login-ms
+            port:
+              number: 5000

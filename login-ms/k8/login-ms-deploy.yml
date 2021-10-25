@@ -1,0 +1,45 @@
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: login-ms-v1
+#   labels:
+#     app: login-ms
+#     version: "1.0"
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: login-ms
+#   template:
+#     metadata:
+#       labels:
+#         app: login-ms
+#         version: "1.0"
+#     spec:
+#       containers:
+#       - name: login-ms
+#         image: 817681614239.dkr.ecr.us-east-1.amazonaws.com/redbicicletas:login-ms
+#         ports:
+#         - name: http-server
+#           containerPort: 5000
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: login-ms
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      role: login-ms
+  template:
+    metadata:
+      labels:
+        role: login-ms
+    spec:
+      containers:
+      - name: login-ms
+        image: 817681614239.dkr.ecr.us-east-1.amazonaws.com/redbicicletas:login-ms
+        imagePullPolicy: "Always"
+        ports:
+        - containerPort: 5000

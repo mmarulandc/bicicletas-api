@@ -1,0 +1,16 @@
+version: "2"
+services:
+  web:
+    build: .
+    ports:
+      - "6000:6000"
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo:3.4.10
+    ports:
+      - "27017:27017"
+    volumes:
+      - bicicleta-ms-mongo-data:/data/db
+volumes:
+  bicicleta-ms-mongo-data:

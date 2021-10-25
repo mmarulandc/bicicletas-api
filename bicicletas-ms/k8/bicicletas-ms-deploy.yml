@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bicicletas-ms
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      role: bicicletas-ms
+  template:
+    metadata:
+      labels:
+        role: bicicletas-ms
+    spec:
+      containers:
+      - name: bicicletas-ms
+        image: 817681614239.dkr.ecr.us-east-1.amazonaws.com/redbicicletas:latest
+        imagePullPolicy: "Always"
+        ports:
+        - containerPort: 5000

@@ -1,0 +1,201 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  meta(name='description' content='')
+  meta(name='author' content='')
+  title Administrador red de bicicletas
+  style.
+    #map{
+      height: 180px;
+    }
+  // Favicon
+  link(rel='icon' type='image/x-icon' href='assets/favicon.ico')
+  // Bootstrap icons
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css' rel='stylesheet')
+  // Core theme CSS (includes Bootstrap)
+  link(href='/stylesheets/style.css' rel='stylesheet')
+  link(rel='stylesheet' href='https://unpkg.com/leaflet@1.7.1/dist/leaflet.css' integrity='sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==' crossorigin='')
+  script(src='https://unpkg.com/leaflet@1.7.1/dist/leaflet.js' integrity='sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==' crossorigin='')
+  script(src='https://code.jquery.com/jquery-3.3.1.js')
+
+main.flex-shrink-0
+  // Navigation
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+    .container.px-5
+      a.navbar-brand(href='/dashboard') Red de bicicletas
+      button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.ms-auto.mb-2.mb-lg-0
+          li.nav-item
+            a.nav-link(href='/dashboard') Home
+          li.nav-item
+            a.nav-link(href='/bicicletas') Bicicletas
+          li.nav-item
+            a.nav-link(href='#') Contact
+          li.nav-item
+            a.nav-link(href='#') Pricing
+          li.nav-item
+            a.nav-link(href='#') FAQ
+
+  // Header
+  header.bg-dark.py-5
+    .container.px-5
+      .row.gx-5.align-items-center.justify-content-center
+        .col-lg-8.col-xl-7.col-xxl-6
+          .my-5.text-center.text-xl-start
+            h1.display-5.fw-bolder.text-white.mb-2 La mejor app administradora de bicis ;)
+            p.lead.fw-normal.text-white-50.mb-4
+              | Descubre todo lo nuevo que tenemos para tu tienda en cuanto bicicletas, brindamos la solución a tu alcance!
+            .d-grid.gap-3.d-sm-flex.justify-content-sm-center.justify-content-xl-start
+        .col-xl-5.col-xxl-6.d-none.d-xl-block.text-center
+          #map
+  // Features section
+  section#features.py-5
+    .container.px-5.my-5
+      .row.gx-5
+        .col-lg-4.mb-5.mb-lg-0
+          h2.fw-bolder.mb-0 Admin de bicicletas en todos lados
+
+  // Testimonial section
+  .py-5.bg-light
+    .container.px-5.my-5
+      .row.gx-5.justify-content-center
+        .col-lg-10.col-xl-7
+          .text-center
+            .fs-4.mb-4.fst-italic
+              | &quot;Lleva una bici a todos lados!&quot;
+            .d-flex.align-items-center.justify-content-center
+              img.rounded-circle.me-3(src='/images/bicicletas.jpg' alt='...')
+              .fw-bold
+                | Tom Ato
+                span.fw-bold.text-primary.mx-1 /
+                |                                         CEO, Pomodoro
+  // Blog preview section
+  section.py-5
+    .container.px-5.my-5
+      .row.gx-5.justify-content-center
+        .col-lg-8.col-xl-6
+          .text-center
+            h2.fw-bolder Descubra nuestras novedades
+            p.lead.fw-normal.text-muted.mb-5
+              | Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque fugit ratione dicta mollitia. Officiis ad.
+      .row.gx-5
+        .col-lg-4.mb-5
+          .card.h-100.shadow.border-0
+            img.card-img-top(src='/images/eventos.jpg' alt='...')
+            .card-body.p-4
+              .badge.bg-primary.bg-gradient.rounded-pill.mb-2 News
+              a.text-decoration-none.link-dark.stretched-link(href='#!')
+                h5.card-title.mb-3 Eventos
+              p.card-text.mb-0
+                | Descubra nuestros eventos relacionados a bicicletas más exitosos
+            .card-footer.p-4.pt-0.bg-transparent.border-top-0
+              .d-flex.align-items-end.justify-content-between
+                .d-flex.align-items-center
+                  img.rounded-circle.me-3(src='https://dummyimage.com/40x40/ced4da/6c757d' alt='...')
+                  .small
+                    .fw-bold Kelly Rowan
+                    .text-muted March 12, 2021 &middot; 6 min read
+        .col-lg-4.mb-5
+          .card.h-100.shadow.border-0
+            img.card-img-top(src='/images/top10.jpg' alt='...')
+            .card-body.p-4
+              .badge.bg-primary.bg-gradient.rounded-pill.mb-2 Media
+              a.text-decoration-none.link-dark.stretched-link(href='#!')
+                h5.card-title.mb-3 TOP 10 bicicletas de montaña más poderosas
+              p.card-text.mb-0
+                | Creíste que tenías una buena bicicleta? descubre estos bebés.
+            .card-footer.p-4.pt-0.bg-transparent.border-top-0
+              .d-flex.align-items-end.justify-content-between
+                .d-flex.align-items-center
+                  img.rounded-circle.me-3(src='https://dummyimage.com/40x40/ced4da/6c757d' alt='...')
+                  .small
+                    .fw-bold Josiah Barclay
+                    .text-muted March 23, 2021 &middot; 4 min read
+        .col-lg-4.mb-5
+          .card.h-100.shadow.border-0
+            img.card-img-top(src='/images/aluminio.jpg' alt='...')
+            .card-body.p-4
+              .badge.bg-primary.bg-gradient.rounded-pill.mb-2 News
+              a.text-decoration-none.link-dark.stretched-link(href='#!')
+                h5.card-title.mb-3 Marcos de aluminio, de verdad son tan buenos?
+              p.card-text.mb-0
+                | Ciertamente los marcos de aluminio brindan una experiencia distinta al montar una bici, descubre qué es
+            .card-footer.p-4.pt-0.bg-transparent.border-top-0
+              .d-flex.align-items-end.justify-content-between
+                .d-flex.align-items-center
+                  img.rounded-circle.me-3(src='https://dummyimage.com/40x40/ced4da/6c757d' alt='...')
+                  .small
+                    .fw-bold Evelyn Martinez
+                    .text-muted April 2, 2021 &middot; 10 min read
+      // Call to action
+      aside.bg-primary.bg-gradient.rounded-3.p-4.p-sm-5.mt-5
+        .d-flex.align-items-center.justify-content-between.flex-column.flex-xl-row.text-center.text-xl-start
+          .mb-4.mb-xl-0
+            .fs-3.fw-bold.text-white New products, delivered to you.
+            .text-white-50 Sign up for our newsletter for the latest updates.
+          .ms-xl-4
+            .input-group.mb-2
+              input.form-control(type='text' placeholder='Email address...' aria-label='Email address...' aria-describedby='button-newsletter')
+              button#button-newsletter.btn.btn-outline-light(type='button') Sign up
+            .small.text-white-50 We care about privacy, and will never share your data.
+// Footer
+footer.bg-dark.py-4.mt-auto
+  .container.px-5
+    .row.align-items-center.justify-content-between.flex-column.flex-sm-row
+      .col-auto
+        .small.m-0.text-white Copyright &copy; Your Website 2021
+      .col-auto
+        a.link-light.small(href='#!') Privacy
+        span.text-white.mx-1 &middot;
+        a.link-light.small(href='#!') Terms
+        span.text-white.mx-1 &middot;
+        a.link-light.small(href='#!') Contact
+// Bootstrap core JS
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js')
+// Core theme JS
+script.
+  var map = L.map('map').setView([6.217, -75.567], 13)
+  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibW1hcnVsYW5kYyIsImEiOiJja3R5cnNrZ24wam9xMnRvcWE5NDQ0aHBjIn0.hN0vv1JrIkheC__LDFE_6w', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      maxZoom: 18,
+      id: 'mapbox/streets-v11',
+      tileSize: 512,
+      zoomOffset: -1,
+      accessToken: 'pk.eyJ1IjoibW1hcnVsYW5kYyIsImEiOiJja3R5cnNrZ24wam9xMnRvcWE5NDQ0aHBjIn0.hN0vv1JrIkheC__LDFE_6w'
+  }).addTo(map);
+  
+  let bicicletas = [];
+  $(document).ready(function(e){
+    const token = localStorage.getItem('jwt');
+    console.log(token);
+    $.ajax({
+      type: 'GET',
+      url: 'http://a12affa71e72f484581e1e1e8fa439bb-fac12d84333478c6.elb.us-east-1.amazonaws.com/bicicletas/bicicleta/',
+      headers: {
+        "Authorization": token
+      },
+      contentType: "application/json;charset=utf-8",
+      success: function (response){
+        // Whatever you want to do after successful delete
+        console.log(response);
+        bicicletas = response.bicicletas || [];
+        localStorage.setItem('bicicletas', JSON.stringify(bicicletas));
+        //- console.log(inputId);
+        console.log(bicicletas)
+        //- alert('updating article');
+      },
+      error: function(err){
+        //- location.assign('/')
+        //- console.log(token)
+        console.error(err);
+      }
+    });
+    
+    JSON.parse(localStorage.getItem('bicicletas')).map((bicicleta) => L.marker([bicicleta.latitud, bicicleta.longitud]).addTo(map));
+  });
+  
+  
+

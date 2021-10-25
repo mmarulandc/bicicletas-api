@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redbicicletas-v1
+  labels:
+    app: redbicicletas
+    version: "1.0"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redbicicletas
+  template:
+    metadata:
+      labels:
+        app: redbicicletas
+        version: "1.0"
+    spec:
+      containers:
+      - name: redbicicletas
+        image: 817681614239.dkr.ecr.us-east-1.amazonaws.com/redbicicletas:redbicicletas
+        imagePullPolicy: "Always"
+        ports:
+        - name: http-server
+          containerPort: 4000

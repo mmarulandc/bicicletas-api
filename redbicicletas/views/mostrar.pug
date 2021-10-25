@@ -1,0 +1,87 @@
+head
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  meta(name='description' content='')
+  meta(name='author' content='')
+  title Administrador red de bicicletas
+  // Favicon
+  link(rel='icon' type='image/x-icon' href='assets/favicon.ico')
+  // Bootstrap icons
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css' rel='stylesheet')
+  // Core theme CSS (includes Bootstrap)
+  link(href='/stylesheets/style.css' rel='stylesheet')
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous')
+  script(src='https://code.jquery.com/jquery-3.3.1.js')
+  //- script(type='text/javascript' src='js/d3.v3.min.js')
+  //- script(type='text/javascript' src='js/utilities.js')
+
+main.flex-shrink-0
+  // Navigation
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+    .container.px-5
+      a.navbar-brand(href='/dashboard') Red de bicicletas
+      button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.ms-auto.mb-2.mb-lg-0
+          li.nav-item
+            a.nav-link(href='/dashboard') Home
+          li.nav-item
+            a.nav-link(href='/bicicletas') Bicicletas
+          li.nav-item
+            a.nav-link(href='#') Contact
+          li.nav-item
+            a.nav-link(href='#') Pricing
+          li.nav-item
+            a.nav-link(href='#') FAQ
+
+form
+  .form-group
+    label(for='exampleInputEmail1') id
+    input#id.form-control(value='bicicleta._id')
+    
+  .form-group
+    label() modelo
+    input#modelo.form-control(value='bicicleta.modelo')
+  .form-group
+    label() color
+    input#color.form-control(value='bicicleta.color')
+  .form-group
+    label() latitud
+    input#latitud.form-control(value='bicicleta.latitud')
+  .form-group
+    label() longitud
+    input#longitud.form-control(value='bicicleta.longitud')
+script.
+  $(document).ready(function(e){
+    const token = localStorage.getItem('jwt');
+    const id = !{JSON.stringify(id)}
+    console.log(id);
+    $.ajax({
+      type: 'GET',
+      url: 'http://a12affa71e72f484581e1e1e8fa439bb-fac12d84333478c6.elb.us-east-1.amazonaws.com/bicicletas/bicicleta/'+id,
+      headers: {
+        "Authorization": token
+      },
+      contentType: "application/json;charset=utf-8",
+      success: function (response){
+        // Whatever you want to do after successful delete
+        console.log(response);
+        const bicicleta = response.bicicleta || {};
+        const inputId = document.getElementById("id").value = bicicleta._id;
+        const modelo = document.getElementById("modelo").value = bicicleta.modelo;
+        const color = document.getElementById("color").value = bicicleta.color;
+        console.log(color)
+        const latitud = document.getElementById("latitud").value = bicicleta.latitud;
+        const longitud = document.getElementById("longitud").value = bicicleta.longitud;
+        //- console.log(inputId);
+        console.log(bicicleta)
+        //- alert('updating article');
+      },
+      error: function(err){
+        location.assign('/')
+        console.error(err);
+      }
+    });
+  });
+
