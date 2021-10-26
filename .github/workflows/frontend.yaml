@@ -1,10 +1,9 @@
-name: Bicicletas API Backend Build
+name: Bicicletas API Frontend Build
 
 on:
   push:
     paths:
-      - 'bicicletas-ms/**'
-      - 'login-ms/**'
+      - 'redbicicletas/**'
     branches:
       - main
 
