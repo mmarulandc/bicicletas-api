@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 // Libreria para codificación de la información del usuario en la base de datos
-
+// Otro comentario
 let BicicletaSchema = new Schema(
   {
     
